@@ -9,10 +9,15 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
         <![endif]-->
         <style>
+            * {
+                box-sizing:border-box;
+                -moz-box-sizing:border-box;
+            }        
             body {
                 font-family: "Helvetica", "Arial", sans-serif;
                 font-size: 1.5em;
                 color:#444;
+                padding:20px;
             }
             a {
                 color:#888;
@@ -26,27 +31,45 @@
                 text-transform: lowercase;
                 font-variant: small-caps;
             }
+            h2 {
+            }
             h3 {
                 font-weight: bold;
                 text-transform: uppercase;
             }
-
             header[role="banner"] {
-/*                position: absolute;
-*/                width: 100%;
+                width: 100%;
             }
             header[role="banner"] hgroup {
                 display: inline-block;
-                width:20%;
+                width:100%;
+                padding:20px;
+            }
+            header[role="banner"] hgroup h1, header[role="banner"] hgroup h2 {
+                display: inline-block;
+                margin:0;
+                padding:0;
             }
             header[role="banner"] nav {
                 display: inline-block;
-                width:80%;
+                width:100%;
             }
-            header[role="banner"] nav li {
+            header[role="banner"] nav ul {
+                list-style: none;
+                margin:0;
+                padding:0;
+                text-align: justify;
+                width:100%;
+            }
+            header[role="banner"] nav ul:after {
+                content: " ";
+                width: 100%;
                 display: inline-block;
+            }            
+            header[role="banner"] nav li {
+/*                display: inline-block;
+*/                padding:20px;
             }
-
         </style>
     </head>
     <body>
@@ -54,7 +77,6 @@
             <hgroup>
                 <h1>Micah Redding</h1>
                 <h2>senior web developer</h2>
-                Last updated: <time datetime="2013-06-01T04:20:00-07:00">1 June 2013</time>                
             </hgroup>
             <nav>
                 <ul role="navigation">
@@ -110,6 +132,6 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </section>
         </article>
-
+         <time datetime="2013-06-01T04:20:00-07:00">1 June 2013</time>                
     </body>
 </html>
