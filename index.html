@@ -8,6 +8,7 @@
         <!--[if lt IE 9]>
             <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
         <![endif]-->
+
         <style>
             * {
                 box-sizing:border-box;
@@ -16,8 +17,9 @@
             body {
                 font-family: "Helvetica", "Arial", sans-serif;
                 font-size: 1.5em;
+                line-height: 1.7em;
                 color:#444;
-                padding:20px;
+                padding:1em;
             }
             a {
                 color:#888;
@@ -26,57 +28,132 @@
             a:hover {
                 text-decoration: underline;
             }
+            a#top {
+                position: absolute;
+                top:0;
+            }
+            nav a:hover {
+                text-decoration: none;
+            }
+
+            /* Header */
             h1 {
+                font-size: 1.3em;
+            }
+            h1, h1 a, h1 a:hover {
                 font-weight: bold;
-                text-transform: lowercase;
-                font-variant: small-caps;
+                text-transform: uppercase;
+                color:#444;
+                text-decoration: none;
             }
             h2 {
+                font-size: 1.3em;
             }
-            h3 {
+            h2, h2 a, h2 a:hover {
+                color:#444;
+                text-decoration: none;
+            }
+            h3, h3 a {
                 font-weight: bold;
                 text-transform: uppercase;
             }
             header[role="banner"] {
                 width: 100%;
             }
-            header[role="banner"] hgroup {
-                display: inline-block;
-                width:100%;
-                padding:20px;
+            hgroup {
+                padding:1em;
             }
-            header[role="banner"] hgroup h1, header[role="banner"] hgroup h2 {
+            hgroup h1, hgroup h2 {
                 display: inline-block;
-                margin:0;
+                margin:0 0.2em 0 0;
                 padding:0;
             }
-            header[role="banner"] nav {
-                display: inline-block;
-                width:100%;
-            }
-            header[role="banner"] nav ul {
+            nav ul {
                 list-style: none;
                 margin:0;
                 padding:0;
-                text-align: justify;
                 width:100%;
             }
-            header[role="banner"] nav ul:after {
-                content: " ";
+            nav li {
+                padding:0.5em 1em;
+            }
+            /* end Header */
+
+            /* Fixed Header */            
+            .header-wrapper.fixed {
+                top:0;
+                left:0;
                 width: 100%;
-                display: inline-block;
+                z-index: 100;
+                background: #EEE;
+                font-size: 0.7em;
+            }
+            @media screen and (min-width: 320px) and (min-height: 480px) {
+                .header-wrapper.fixed {
+                    position: fixed;
+                }
             }            
-            header[role="banner"] nav li {
-/*                display: inline-block;
-*/                padding:20px;
+            .header-wrapper.fixed hgroup {
+                display: inline-block;
+                padding: 0 1em;
+            }
+            .header-wrapper.fixed h1, .header-wrapper.fixed h2 {
+                font-size: 0.9em;
+                text-transform: uppercase;
+            }
+            .header-wrapper.fixed nav {
+                padding:0 1em;
+                display: inline-block;
+            }
+            .header-wrapper.fixed nav li {
+                display: inline-block;
+                padding:0em 0em;
+            }
+            @media screen and (max-width: 740px) {
+                .header-wrapper.fixed nav li + li a:before {
+                    content: ' ';
+                    display: inline;
+                }
+            }
+            @media screen and (min-width: 740px) {
+                .header-wrapper.fixed nav li {
+                    padding:0 1em;
+                }
+            }
+
+            /* end Fixed Header */
+
+            article {
+                padding:1em 1em;
+            }
+            section {
+                font-size: 0.9em;
+                margin:2em 0;
+            }
+
+            .job-title, .school-name {
+                font-weight: bold;
+            }
+            .job-employer, .school-study {
+
+            }
+            .job-duration, .school-duration {
+                color:#999;
+            }
+            .school-notes {
+                margin:1em 0;
+            }
+            .links a {
+                display: block;
             }
         </style>
     </head>
     <body>
+        <a id="top"></a>
         <header role="banner">
+            <div class="header-wrapper">
             <hgroup>
-                <h1>Micah Redding</h1>
-                <h2>senior web developer</h2>
+                <h1><a href="#top">Micah Redding</a></h1> <h2><a href="#top">senior web developer</a></h2>
             </hgroup>
             <nav>
                 <ul role="navigation">
@@ -87,13 +164,16 @@
                     <li><a href="#links">Links</a></li>
                 </ul>
             </nav>
+            </div>
         </header>
-        <article role="main" id="skills">
+        <article id="skills">
             <header>
                 <h3>Skillset</h3>
             </header>
             <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>Skills: PHP, Drupal, HTML5, Javascript, jQuery, CSS, Sass, Coffeescript, Git.</p>
+                <p>Currently studying: Ruby on Rails, Node.js, Vagrant &amp; Chef</p>
+                <p>Interests: Humanity, preservation of metadata.</p>
             </section>
         </article>
 
@@ -101,8 +181,11 @@
             <header>
                 <h3>Education</h3>
             </header>
-            <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <section class="school">
+                <div class="school-name">Freed-Hardeman University</div>
+                <div class="school-study">Computer Information Science, Programming, Software Design, Web technology</div>
+                <div class="school-duration">1999 – 2003</div>
+                <div class="school-notes">At Freed, I was heavily involved, participating in the Honors College, Student Government Association, University Student Ambassadors, Kappa Sigma (Computer Science Association), Psi Mu (social club) Vice-President and Sports Captain, Campus Radio Station, Yearbook Staff, and A Cappella Singers.</div>
             </section>
         </article>
 
@@ -110,9 +193,27 @@
             <header>
                 <h3>Work History</h3>
             </header>
-            <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <section class="job">
+                <div class="job-title">Senior Developer</div>
+                <div class="job-employer">CentreSource</div>
+                <div class="job-duration">August 2012 – Present</div>
+                <div class="job-requirements">Drupal, PHP, module development, responsive layout, jQuery, Sass, Bourbon Neat (Sass), Coffeescript.</div>
             </section>
+
+            <section class="job">
+                <div class="job-title">Drupal Developer</div>
+                <div class="job-employer">Horton Group</div>
+                <div class="job-duration">January 2010 – August 2012</div>
+                <div class="job-requirements">Drupal Theming, Drupal Web Development, PHP, CSS, and Javascript programming.</div>
+            </section>
+
+            <section class="job">
+                <div class="job-title">Internet Web Design Instructor</div>
+                <div class="job-employer">Daymar College / Draughons Junior College</div>
+                <div class="job-duration">August 2006 – December 2010</div>
+                <div class="job-requirements">Taught Dreamweaver, HTML, CSS, Javascript, PHP.</div>
+            </section>
+
         </article>
 
         <article id="activities">
@@ -120,7 +221,7 @@
                 <h3>Activities</h3>
             </header>
             <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                Mensa Executive Committee, Barcamp speaker, Podcamp speaker, Nashville Geek Breakfast, Nashville Drupalers, Ruby on Rails Meetup, Nashville Singularity Meetup (founder)
             </section>
         </article>
 
@@ -128,10 +229,48 @@
             <header>
                 <h3>Links</h3>
             </header>
-            <section>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <section class="links">
+                <a href="http://github.com/micahredding">github.com/micahredding</a>
+                <a href="mailto://micahtredding@gmail.com">@gmail.com</a>
             </section>
         </article>
          <time datetime="2013-06-01T04:20:00-07:00">1 June 2013</time>                
+
+
+         <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+         <script>
+
+            $fixed_header = $('.header-wrapper').clone(true).addClass('fixed').hide().appendTo('body');
+
+            switch_header = function(){
+                header_bottom = $('header[role="banner"]').height();  
+                if($(window).scrollTop() > header_bottom - ($fixed_header.height() * 2 )) {
+                    $fixed_header.fadeIn({duration: 200});
+                } 
+                if($(window).scrollTop() < header_bottom - ($fixed_header.height() * 2 )) {
+                    $fixed_header.fadeOut({duration: 200});
+                } 
+            }
+
+            resize_sections = function(){
+                $('header[role="banner"], article').css('min-height', $(window).height());
+            }
+
+            scroll_to = function(event){
+                event.preventDefault();
+                hash = event.target.hash;
+                $destination = $(hash);
+                $('html, body').animate({
+                    scrollTop: $destination.offset().top - $fixed_header.height(),
+                }, 800);
+                switch_header();
+            }
+
+            $(window).resize(resize_sections);
+            $(window).scroll(switch_header);
+            $('nav a, hgroup a').click(scroll_to);
+            resize_sections();
+            switch_header();
+         </script>
     </body>
 </html>
