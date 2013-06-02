@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8">
-        <title>Micah Redding: senior web developer</title>
+        <title>Micah Redding: web developer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="//favicon.ico" type="image/x-icon" sizes="16x16">
         <!--[if lt IE 9]>
@@ -25,7 +25,7 @@
                 padding:1em;
             }
             a {
-                color:#888;
+                color:#444;
                 text-decoration: none;
             }
             a:hover {
@@ -156,7 +156,7 @@
         <header role="banner">
             <div class="header-wrapper">
             <hgroup>
-                <h1><a href="#top">Micah Redding</a></h1> <h2><a href="#top">senior web developer</a></h2>
+                <h1><a href="#top">Micah Redding</a></h1> <h2><a href="#top">web developer</a></h2>
             </hgroup>
             <nav>
                 <ul role="navigation">
@@ -174,9 +174,9 @@
                 <h3>Skillset</h3>
             </header>
             <section>
-                <p>Skills: PHP, Drupal, HTML5, Javascript, jQuery, CSS, Sass, Coffeescript, Git.</p>
-                <p>Currently studying: Ruby on Rails, Node.js, Vagrant &amp; Chef</p>
-                <p>Interests: Humanity, preservation of metadata.</p>
+                <p><strong>Skills</strong>: PHP, Drupal, HTML5, Javascript, jQuery, CSS, Sass, Coffeescript, Git.</p>
+                <p><strong>Currently studying</strong>: Ruby on Rails, Node.js, Vagrant &amp; Chef.</p>
+                <p><strong>Interests</strong>: Humanity, preservation of metadata.</p>
             </section>
         </article>
 
@@ -244,7 +244,6 @@
          <script>
 
             $fixed_header = $('.header-wrapper').clone(true).addClass('fixed').hide().appendTo('body');
-            // markers = [];
 
             switch_header = function(){
                 header_trigger = $('header[role="banner"]').height() / 2;  
@@ -256,42 +255,10 @@
                 if(position < header_trigger ) {
                     $fixed_header.fadeOut({duration: 200});
                 } 
-
-                // current_marker_index = 0;
-                // for (var i = 0; i <= markers.length - 1; i++) {
-                //     if (position > markers[i] - 120) {
-                //         current_marker_index = i;
-                //     }
-                // };
-
-                // switch (current_marker_index) {
-                    // case 0:
-                    //     $('body').css('background', '#FFF');
-                    //     break;
-                    // case 1:
-                    //     $('body').css('background', '#EFF');
-                    //     break;
-                    // case 2:
-                    //     $('body').css('background', '#FFF');
-                    //     break;
-                    // case 3:
-                    //     $('body').css('background', '#EFF');
-                    //     break;                    
-                    // case 4:                    
-                    //     $('body').css('background', '#FFF');
-                    //     break;
-                    // default:
-                    //     $('body').css('background', '#EFF');
-                    //     break;
-                // }
             }
 
             resize_sections = function(){                
                 $('header[role="banner"], article').css('min-height', $(window).height());
-                // markers = [];
-                // $('[id]').each(function(index) {
-                //     markers.push($(this).offset().top);
-                // });
             }
 
             scroll_to = function(event){
